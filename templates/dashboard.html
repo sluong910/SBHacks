@@ -7,11 +7,9 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>User Dashboard</h1>
-    <input type="file" accept="image/*" capture="camera" />
     <p id='word'>definition</p>
 
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-    <script src="scripts/firebaseDatabase.js"></script>
+    <script src="{{ url_for('static',filename='scripts/firebaseDatabase.js') }}"></script>
 </body>
 </html>
