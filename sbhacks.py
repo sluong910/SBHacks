@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 import pyrebase
+import ocv_test
+import re
 
 app = Flask(__name__)
 
@@ -28,7 +30,7 @@ def login():
     #     password = request.form['password']
     #     user = auth.sign_in_with_email_and_password(email, password)
     return render_template('login.html')
-    
+
 
 @app.route("/createAccount", methods=['GET', 'POST'])
 def create_account():
@@ -42,8 +44,13 @@ def create_account():
 
 @app.route("/dashboard", methods=['POST'])
 def dashboard():
-    # card = {"ベトナム人" : "Vietnamese"}
-    # db.child("word").push(card)
+    filestr = request.files['file'].read()
+
+    outp = ocv_test.parse_img(filestr)
+    text1 = re.sub(r'\s+', ' ', outp[0])
+    text2 = re.sub(r'\s+', ' ', outp[1])
+    card = {text1:text2}
+    db.child("word").push(card)
 
     return render_template('dashboard.html')
 
