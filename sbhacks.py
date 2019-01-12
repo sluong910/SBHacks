@@ -22,17 +22,20 @@ auth = firebase.auth()
 user = dict()
 current_email = ""
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
-
-@app.route("/login", methods=['GET', 'POST'])
-def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        user = auth.sign_in_with_email_and_password(email, password)
-        current_email = email
+        try:
+            auth.sign_in_with_email_and_password(email, password)
+            return render_template('dashboard.html')
+        except:
+            return render_template('login.html')
+    return render_template('login.html')
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
     return render_template('login.html')
 
 
@@ -51,13 +54,13 @@ def create_account():
 def dashboard():
     user_info = current_email
     #auth.get_account_info(user['idToken'])
-    # filestr = request.files['file'].read()
+    filestr = request.files['file'].read()
 
-    # outp = ocv_test.parse_img(filestr)
-    # text1 = re.sub(r'\s+', ' ', outp[0])
-    # text2 = re.sub(r'\s+', ' ', outp[1])
-    # card = {text1:text2}
-    # db.child("word").push(card)
+    outp = ocv_test.parse_img(filestr)
+    text1 = re.sub(r'\s+', ' ', outp[0])
+    text2 = re.sub(r'\s+', ' ', outp[1])
+    card = {text1:text2}
+    db.child("word").push(card)
 
     return render_template('dashboard.html', info=user_info)
 

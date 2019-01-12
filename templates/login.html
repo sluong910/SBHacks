@@ -66,17 +66,17 @@
         <h1 class="display-1" id="h1">Login</h1>
 
           <div style="height:100px"></div>
-        <form class="form-inline">
+        <form class="form-inline" action="/" method="post">
           <div class="form-group">
-            <label id="email"> Email</label>
+            <label id="LaEm"> Email</label>
             &nbsp;
-            <input type="email" class="form-control" placeholder="Email" >
+            <input type="email" class="form-control" placeholder="Email" name="email">
           </div>
           <div class="form-group">
             &nbsp;
-            <label id="password"> Password</label>
+            <label id="LaPass"> Password</label>
             &nbsp;
-            <input type="Password" class="form-control" placeholder="password" >
+            <input type="Password" class="form-control" placeholder="password" name="password">
           </div>
           <div class="checkbox">
             <br>
@@ -84,7 +84,7 @@
               &nbsp;
               <input type="checkbox">Remember Me
             </label>
-            <button type="login" class="btn btn-warning">Login</button>
+            <input type="submit" class="btn btn-warning">Login</button>
           </div>
         </form>
       </div>
