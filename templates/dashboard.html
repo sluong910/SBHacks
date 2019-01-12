@@ -7,7 +7,13 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <p id='word'>definition</p>
+        <h1>Upload new File</h1>
+        <form method=post action="/dashboard" enctype=multipart/form-data>
+          <p><input type=file name=file>
+             <input type=submit value=Upload>
+        </form>
+
+        {{info}}
 
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <script src="{{ url_for('static',filename='scripts/firebaseDatabase.js') }}"></script>
