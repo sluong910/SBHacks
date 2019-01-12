@@ -1,29 +1,22 @@
 import cv2
 import sys
 import pytesseract
- 
+from googletrans import Translator
+
+# config
+pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
+translator = Translator()
+# translate_map
+
+def parse_img(img):
+	words = {}
+	im = cv2.imread(img, 0)
+	text = pytesseract.image_to_string(im, lang="chi_sim")
+	translated = translator.translate(clean_text(text), src="zh-cn", dest="en")
+	return (text, translated.text)
+
+def clean_text(text):
+	return text.replace('\n', '')
+
 if __name__ == '__main__':
- 
-  if len(sys.argv) < 2:
-    print('Usage: python ocr_simple.py image.jpg')
-    sys.exit(1)
-   
-  # Read image path from command line
-  imPath = sys.argv[1]
-     
-  # Uncomment the line below to provide path to tesseract manually
-  pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
- 
-  # Define config parameters.
-  # '-l eng'  for using the English language
-  # '--oem 1' for using LSTM OCR Engine
-  config = ('-l eng --oem 1 --psm 3')
- 
-  # Read image from disk
-  im = cv2.imread(imPath, cv2.IMREAD_COLOR)
- 
-  # Run tesseract OCR on image
-  text = pytesseract.image_to_string(im, config=config)
- 
-  # Print recognized text
-  print(text)
+	parse_img(img="image1.jpg")
