@@ -52,7 +52,7 @@ def create_account():
 
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
-    user_info = current_email
+    # user_info = current_email
     #auth.get_account_info(user['idToken'])
     filestr = request.files['file'].read()
 
@@ -61,6 +61,10 @@ def dashboard():
     text2 = re.sub(r'\s+', ' ', outp[1])
     card = {text1:text2}
     db.child("word").push(card)
+
+    idtoken = request.session['uid']
+    user_info = authe.get_account_info(idToken)['users'][0]['localId']
+
 
     return render_template('dashboard.html', info=user_info)
 
