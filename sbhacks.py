@@ -1,5 +1,20 @@
 from flask import Flask, render_template
+import pyrebase
+
 app = Flask(__name__)
+
+
+config = {
+  "apiKey": "AIzaSyDLZ672i6TUb9FwpIasc0MzfDhFOMrOYHI",
+  "authDomain": "sb-hacks-bf124.firebaseapp.com",
+  "databaseURL": "https://sb-hacks-bf124.firebaseio.com",
+  "projectId": "sb-hacks-bf124",
+  "storageBucket": "sb-hacks-bf124.appspot.com",
+  "messagingSenderId": "544177410232"
+};
+
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
 
 @app.route("/")
 def index():
@@ -15,6 +30,8 @@ def create_account():
 
 @app.route("/dashboard")
 def dashboard():
+    card = {"ベトナム人" : "Vietnamese"}
+    db.child("word").push(card)
     return render_template('dashboard.html')
 
 @app.route("/settings")
