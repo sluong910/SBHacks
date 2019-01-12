@@ -12,7 +12,7 @@ if __name__ == '__main__':
   imPath = sys.argv[1]
      
   # Uncomment the line below to provide path to tesseract manually
-  pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
+  pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
  
   # Define config parameters.
   # '-l eng'  for using the English language
