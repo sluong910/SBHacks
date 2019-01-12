@@ -43,7 +43,7 @@ def create_account():
         email = request.form['email']
         password = request.form['password']
         auth.create_user_with_email_and_password(email, password)
-        db.set(email) 
+        db.set(email)
         msg = 'Account Successfully Created'
     return render_template('createAccount.html', message=msg)
 
@@ -61,12 +61,9 @@ def dashboard():
 
     return render_template('dashboard.html', info=user_info)
 
-
-@app.route("/settings")
+@app.route("/AboutUs")
 def settings():
-    return render_template('settings.html')
-
-
+    return render_template('AboutUs.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

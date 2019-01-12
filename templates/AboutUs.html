@@ -1,32 +1,10 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-</head>
-<body>
-        <h1>Upload new File</h1>
-        <form method=post action="/dashboard" enctype=multipart/form-data>
-          <p><input type=file name=file>
-             <input type=submit value=Upload>
-        </form>
-
-        {{info}}
-
-    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-    <script src="{{ url_for('static',filename='scripts/firebaseDatabase.js') }}"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>About Us</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 	<!-- Optional theme -->
@@ -43,17 +21,17 @@
         background-color: black;
         border-color: white;
       }
+      #Name{
+        font-family: 'ZCOOL KuaiLe', cursive;
+        font-size: 20px;
+      }
       #A1{
         font-family: 'ZCOOL KuaiLe', cursive;
         font-size: 40px;
       }
-      #h1{
-        font-family: 'Amatic SC', cursive;
-        font-size:120px;
-      }
       .jumbotron {
-	       background: #ABCDEF url('images/Dashboard.jpg') no-repeat right top;
-         height: 350px;
+         background: #ABCDEF url('images/Dashboard.jpg') no-repeat right top;
+         height: 600px;
        }
     </style>
 </head>
@@ -71,33 +49,26 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <div class="container">
-        <h1 class="display-1" id="h1">Dashboard</h1>
+        <h1 class="display-1" id="h1">About Us</h1>
+        <div style="height:40px"></div>
           <p>
-             Try me! Upload an image here to see the magic
-           </p>
-
-          <div style="height:40px"></div>
-          <form method=post action="/dashboard" enctype=multipart/form-data>
-            <p><input type=file name=file>
-               <input type=submit value=Upload>
-          </form>
-          <input  type="file" accept="image/*" capture="camera" class="align-middle" />
-          <input type="submit" class="btn btn-danger" value="Submit">
+            Welcome to &nbsp;<strong id="Name">QuickLang</strong>&nbsp;! We are here to help you connecting with unfamiliar places by directly translating all languages for you with just a few clicks.
+            Moreover, we designed our website as simple as possible to help all ages to learn new languages.
+            We also__
+          </p>
       </div>
     </div>
   </div>
-
-<div style="height:20px"></div>
-<!-- Extra Stuff-->
   <div class="container marketing">
   <div class="row">
     <div class="col-md-4 col-lg-4">
-      <a href="AboutUs.html"  target="_blank">
-        <img alt="About Us" src="images/AboutUs.jpg" width="90" height="90">
+      <a href="dashboard.html"  target="_blank">
+        <img alt="Dashboard" src="images/Dashboard_Img.jpg" width="100" height="100">
       </a>
-      <h2>About Us</h2>
+      <h2>Dashboard</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
     </div>
+
 
     <div class="col-md-4 col-lg-4">
       <a href="#"  target="_blank">
@@ -117,11 +88,10 @@
   </div>
   </div>
 
-
-</body>
 <div style= "height:40px"></div>
 <footer>
   <p class= "container"><small>Copyright &copy; 2019 UCSBhacks</small></p>
 
 </footer>
+</body>
 </html>
