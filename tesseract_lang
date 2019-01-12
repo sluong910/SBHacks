@@ -1,0 +1,11 @@
+LANGUAGES = {
+    "english" : "eng",
+    "spanish" : "spa",
+    "german" : "deu",
+    "french" : "fra",
+    "japanese" : "jpn",
+    "korean" : 'kor',
+    "chinese_simpl" : "chi_sim",
+    "chinese_tra" : "chi_tra",
+    "vietnamese" : "vie"
+}
