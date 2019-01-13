@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
 
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .navbar{
         margin-bottom:0;
@@ -62,7 +62,7 @@
   <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
-        <a class="display-1" href="dashboard.html" id="A1"><font color="white">QuickLang</font></a>
+        <a class="display-1" href="{{ url_for('login') }}" id="A1"><font color="white">QuickLang</font></a>
       </nav>
     </div>
   </div>
@@ -92,7 +92,7 @@
   <div class="row">
     <div class="col-md-4 col-lg-4">
       <a href="AboutUs.html"  target="_blank">
-        <img alt="About Us" src="images/AboutUs.jpg" width="90" height="90">
+        <img alt="About Us" src="static/images/AboutUs.jpg" width="90" height="90">
       </a>
       <h2>About Us</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
@@ -100,7 +100,7 @@
 
     <div class="col-md-4 col-lg-4">
       <a href="#"  target="_blank">
-        <img alt="Contact Info" src="images/contactinfo.jpg" width="100" height="100">
+        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
       </a>
       <h2>Contact Information</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
@@ -108,7 +108,7 @@
 
     <div class="col-md-4 col-lg-4">
       <a href="login.html" target="_blank">
-        <img alt="Login" src="images/Login.jpg" width="100" height="100">
+        <img alt="Login" src="static/images/Login.jpg" width="100" height="100">
       </a>
       <h2>Login</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>

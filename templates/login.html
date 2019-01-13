@@ -89,7 +89,7 @@
     <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
-        <a class="display-1" href="index.html" id="A1"><font color="white">QuickLang</font></a>
+        <a class="display-1" href="{{ url_for('login') }}" id="A1"><font color="white">QuickLang</font></a>
       </nav>
     </div>
     </div>
@@ -165,65 +165,3 @@
 
 </footer>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-auth.js"></script> -->
-    <!-- <title>Login</title>
-</head>
-<body>
-    <h1>Login Page</h1>
-    <form action='/dashboard' methods='POST'>
-        <label for="email"><strong>Email</strong></label>
-        <input id="email" type="email" placeholder="Enter Email" name="email" required>
-
-        <label for="password"><strong>Password</strong></label>
-        <input id="password" type="password" placeholder="Enter Password" name="password" required>
-
-        <button id= "login" type="submit">Login</button>
-    </form> -->
-
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        const config = {
-            apiKey: "AIzaSyDLZ672i6TUb9FwpIasc0MzfDhFOMrOYHI",
-            authDomain: "sb-hacks-bf124.firebaseapp.com",
-            databaseURL: "https://sb-hacks-bf124.firebaseio.com",
-            projectId: "sb-hacks-bf124",
-            storageBucket: "sb-hacks-bf124.appspot.com",
-            messagingSenderId: "544177410232"
-        };
-        firebase.initializeApp(config);
-
-        //Get DOM elements
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-        const buttonLogin = document.getElementById("login");
-
-        buttonLogin.addEventListener('click', e => {
-            alert("clicked");
-            const emailValue = email.value;
-            const passwordValue = password.value;
-            alert(emailValue);
-            alert(passwordValue);
-
-            firebase.auth().signOut().catch(function(error) {});
-
-            user = firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue).catch(function(error) {
-                alert(error);
-            });
-
-            alert(firebase.auth().currentUser.email);
-
-        });
-    </script> -->
-<!-- </body>
-</html> -->
