@@ -101,7 +101,7 @@ def settings():
 
 @app.route("/flash")
 def flashcards():
-    return render_template('flashcards.html', flashcards=[(word, definition)])
+    return render_template('flashcards.html', flashcards=[('word', 'definition')])
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
