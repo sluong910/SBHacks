@@ -8,13 +8,13 @@ from PIL import Image, ImageEnhance, ImageFilter
 from google.cloud import translate as tr
 import os
 
-credential_path = r"F:\VAULT 419\Files\projects\Python\test\Ngan-d75258a9f7a3.json"
+credential_path = r"Ngan-d75258a9f7a3.json"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 translate_client = tr.Client()
 
 # config
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR/tesseract.exe'
 
 def parse_img(f, lang):
     try:
