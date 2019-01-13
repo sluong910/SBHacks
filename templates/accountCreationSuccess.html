@@ -4,9 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sucess</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<!-- Optional theme -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .navbar{
+        margin-bottom:0;
+        border-radius:0;
+        background-color: black;
+        border-color: white;
+      }
+      #Name{
+        font-family: 'Allerta Stencil', sans-serif;
+        font-size: 20px;
+      }
+      #A1{
+          font-family: 'Allerta Stencil', sans-serif;
+          font-size: 60px;
+        }
+        #h2{
+          color:black;
+        }
+      #A2{
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 15px;
+      }
+      .jumbotron {
+         background: #ABCDEF url('static/images/Dashboard.jpg') no-repeat right top;
+         height: 600px;
+       }
+       .desc {
+        color: black;
+       }
+       h2 {
+        color:black;
+       }
+    </style>
 </head>
 <body>
-    <h1>Account Successsfully Created</h1>
+	<!--navbar-->
+  <div class="navbar-wrapper navbar-wrapper-dark">
+    <div class="container-fluid">
+      <nav class="navbar navbar-static-top">
+        <a class="display-1" href="{{ url_for('login') }}" id="A1">
+          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
+        </a>
+      </nav>
+    </div>
+  </div>
+    <h1 style="color:black; text-align: center" >Account Successsfully Created</h1>
 </body>
 </html>

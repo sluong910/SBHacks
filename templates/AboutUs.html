@@ -38,8 +38,14 @@
         font-size: 15px;
       }
       .jumbotron {
-         background: #ABCDEF url('images/Dashboard.jpg') no-repeat right top;
+         background: #ABCDEF url('static/images/Dashboard.jpg') no-repeat right top;
          height: 600px;
+       }
+       .desc {
+        color: black;
+       }
+       h2 {
+        color:black;
        }
     </style>
 </head>
@@ -62,7 +68,7 @@
         <h1 class="display-1" id="h1">About DARE</h1>
         <div style="height:40px"></div>
           <p>
-            Welcome to &nbsp;<strong id="Name">QuickLang</strong>&nbsp;! We are here to help you connecting with unfamiliar places by directly translating all languages for you with just a few clicks.
+            Welcome to &nbsp;<strong id="Name">DARE</strong>&nbsp;! We are here to help you connecting with unfamiliar places by directly translating all languages for you with just a few clicks.
             Moreover, we designed our website as simple as possible to help all ages to learn new languages.
             We also__
           </p>
@@ -73,27 +79,27 @@
   <div class="row">
     <div class="col-md-4 col-lg-4">
       <a <a href="{{ url_for('dashboard') }}"  target="_blank">
-        <img alt="Dashboard" src="images/Dashboard_Img.jpg" width="100" height="100">
+        <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
       </a>
       <h2>Dashboard</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
     </div>
 
 
     <div class="col-md-4 col-lg-4">
-      <a href="#"  target="_blank">
-        <img alt="Contact Info" src="images/contactinfo.jpg" width="100" height="100">
+      <a href="#">
+        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
       </a>
       <h2 id="h2">Who Are We?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
     </div>
 
     <div class="col-md-4 col-lg-4">
       <a <a href="{{ url_for('login') }}" target="_blank">
-        <img alt="Login" src="images/Login.jpg" width="100" height="100">
+        <img alt="Login" src="static/images/Login.jpg" width="100" height="100">
       </a>
       <h2>Login</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
     </div>
   </div>
   </div>
