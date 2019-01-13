@@ -1,1 +1,10 @@
 # SBHacks
+## Headline
+We developed a web application that revolved around translating images with foreign text into English, which would then be stored into flash cards. We built our application with the hopes that students studying abroad or anyone who likes to travel can spend less time learning the language and more time soaking in the culture. 
+
+## Story
+We were inspired by the revolution in augmented and artificial realities with the expansion of open source projects such as OpenCV. As a result, we knew we wanted to build something involving augmented realities coming into SB Hacks. Additionally, that the competition's main prompt asked hackers to come up with hacks that are relevant and useful to students, we thought it would be a fun idea to expand upon Google Translate's main functionality. As a result, we decided to jimmy together our own image to translated text framework using OpenCV, PyTesseract, and of course Google Cloud Platform's Translation API itself. The end result was a smooth and intuitive web application that wrapped around an image "translation" script that had roughly 60 to 70 percent accuracy depending on the language. 
+
+## Challenges
+One of our many challenges involved smartly segmenting the translated text. With western languages, most sentences are formed with words that consist of one list index. As a result, it was fairly simple to translate foreign languages like French and Spanish into their respective English definitions. On the other hand, Eastern languages such as Japanese and Chinese often came in one long string, unseparated by any delimiters. As a result, it was near impossible to attach meaningful translations to Eastern languages without the help of the Google Translate API. With its help, we were able to attach pronunciation to group characters by words and attach translations from there. Additionally, in case of a Google API failure, we attached rudimentary fallbacks such that text can still be translated by 1, 2, and 3 tuples of characters. It was by no means an efficient solution but an acceptable "brute force" approach in the event our best case scenario fell out. 
+
