@@ -8,13 +8,13 @@ from PIL import Image, ImageEnhance, ImageFilter
 from google.cloud import translate as tr
 import os
 
-credential_path = r"Ngan-d75258a9f7a3.json"
+credential_path = r"F:\\VAULT 419\\Files\\projects\\Python\\test\\Ngan-d75258a9f7a3.json"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 translate_client = tr.Client()
 
 # config
-pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR/tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
 
 def parse_img(f, lang):
     try:
@@ -23,14 +23,13 @@ def parse_img(f, lang):
         img_np = cv2.imdecode(nparr, 0)
         img = Image.fromarray(img_np)
         text = pytesseract.image_to_string(img, lang=lang)
-        if text == '':
+        """if text == '':
             im = img.convert('L')
             im = im.filter(ImageFilter.MedianFilter())
             img = im.point(lambda x: 0 if x < 140 else 255)
             text = pytesseract.image_to_string(img, lang=lang)
-            return text
-        else:
-            return text
+            return text"""
+        return text
     except Exception as e:
         return str(e)
 
