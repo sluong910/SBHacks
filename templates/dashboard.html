@@ -81,22 +81,15 @@
 </head>
 <body>
   <!--navbar-->
-  <div class="navbar-wrapper navbar-wrapper-dark">
+    <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
         <a class="display-1" href="{{ url_for('login') }}" id="A1">
-          <font color="white">DARE 
-            <br><small id="A2"> Dictionary & Augmented Reality Explorer</small>
+          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
         </a>
-          <button type="button" class="btn btn-dark btn-xs">
-            <a href='/flash' style="color:grey">Flashcards</a>
-          </button>
-         <!-- <p>
-            <a href='/flash'>Flashcards</a>
-          </p> -->
       </nav>
     </div>
-  </div>
+    </div>
 
   <!-- JUMBOTRON-->
   <div class="container-fluid">
@@ -143,17 +136,17 @@
   <div class="container marketing">
   <div class="row">
     <div class="col-md-4 col-lg-4">
-      <a <a href="{{ url_for('dashboard') }}">
-        <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
+      <a <a href="{{ url_for('flashcards') }}">
+        <img alt="Flashcards" src="static/images/contactinfo.jpg" width="100" height="100">
       </a>
-      <h2>Dashboard</h2>
-      <p class="desc">Scan images, access flashcards, and account services</p>
+      <h2>Flashcards</h2>
+      <p class="desc">Access your collection of Flashcards</p>
     </div>
 
 
     <div class="col-md-4 col-lg-4">
       <a href="{{ url_for('settings') }}" target="_blank">
-        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
+        <img alt="Contact Info" src="static/images/AboutUS.jpg" width="100" height="100">
       </a>
       <h2 id="h2">Who Are We?</h2>
       <p class="desc">We are a group of passionate programmers who DARE'd to break the boundaries of language</p>

@@ -99,7 +99,6 @@
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   display: inline-block;
-  float:left;
 }
 
 /* This container is needed to position the front and back side */
@@ -110,7 +109,6 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  float:left;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -143,7 +141,7 @@
   <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
-        <a class="display-1" href="{{ url_for('login') }}" id="A1">
+        <a class="display-1" href="{{ url_for('dashboard') }}" id="A1">
           <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
         </a>
       </nav>
@@ -193,28 +191,28 @@
   <div class="container marketing">
   <div class="row">
     <div class="col-md-4 col-lg-4">
-      <a <a href="{{ url_for('dashboard') }}"  target="_blank">
+      <a <a href="{{ url_for('dashboard') }}">
         <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
       </a>
       <h2>Dashboard</h2>
-      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <p class="desc">Scan images, access flashcards, and account services</p>
     </div>
 
 
     <div class="col-md-4 col-lg-4">
-      <a href="#"  target="_blank">
-        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
+      <a href="{{ url_for('settings') }}"  target="_blank">
+        <img alt="Contact Info" src="static/images/AboutUs.jpg" width="100" height="100">
       </a>
       <h2 id="h2">Who Are We?</h2>
-      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <p class="desc">We are a group of passionate programmers who DARE'd to break the boundaries of language</p>
     </div>
 
     <div class="col-md-4 col-lg-4">
-      <a <a href="{{ url_for('login') }}" target="_blank">
+      <a <a href="{{ url_for('login') }}">
         <img alt="Login" src="static/images/Login.jpg" width="100" height="100">
       </a>
-      <h2>Login</h2>
-      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+      <h2>Logout</h2>
+      <p class="desc">Log out of your account</p>
     </div>
   </div>
   </div>
