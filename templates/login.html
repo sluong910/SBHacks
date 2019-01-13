@@ -12,9 +12,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
 
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    a {color: #343a40;}
+      a {color: #343a40;}
+      html {
+      box-sizing: border-box;
+      }
+      *, *:before, *:after {
+      box-sizing: inherit;
+      }
       .navbar{
         margin-bottom:0;
         border-radius:0;
@@ -48,6 +54,34 @@
          background: #ABCDEF url('static/images/Dashboard.jpg') no-repeat right top;
          height: 600px;
        }
+       .form-group {
+        max-width: 950px;
+        margin: 0 auto;
+        text-align: center;
+        display : block;
+        }
+        .container {
+          position: relative;
+        }
+        .form-group {
+          position: absolute;
+        width: 200px;
+        height: 50px;
+        left: 50%;
+        top: 0;
+        margin: 0 0 0 -100px;
+        }
+        .checkbox {
+        position: absolute;
+        width: 200px;
+        height: 50px;
+        left: 50%;
+        bottom: 0;
+        margin: 0 0 0 -100px;
+        }
+        .remember_me {
+          float = left;
+        }
     </style>
     </head>
     <body>
@@ -63,34 +97,32 @@
     <!-- JUMBOTRON-->
     <div class="container-fluid">
     <div class="jumbotron text-center">
+      <h1 class="display-1" id="h1">Login</h1>
       <div class="container">
-        <h1 class="display-1" id="h1">Login</h1>
-
           <div style="height:100px"></div>
         <form class="form-inline" action="/" method="post">
           <div class="form-group">
             <label id="LaEm"> Email</label>
             &nbsp;
             <input type="email" class="form-control" placeholder="Email" name="email">
-          </div>
-          <div class="form-group">
             &nbsp;
             <label id="LaPass"> Password</label>
             &nbsp;
             <input type="Password" class="form-control" placeholder="password" name="password">
           </div>
-          <div class="checkbox">
+        </form>
+        <div style="height:120px"></div>
+        <div class="checkbox">
             <br>
-            <label id="LaRe">
-              &nbsp;
-              <input type="checkbox">Remember Me
-            </label>
             <input type="submit" class="btn btn-warning" href="{{ url_for('dashboard') }}">
             <button type="login" class="btn btn-success">
               <a href="{{ url_for('create_account') }}">SIGN ME UP!</a>
             </button>
+            <label id="LaRe" class="remember_me">
+              &nbsp;
+              <input type="checkbox" >Remember Me
+            </label>
           </div>
-        </form>
       </div>
     </div>
     </div>
