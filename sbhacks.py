@@ -101,7 +101,11 @@ def settings():
 
 @app.route("/flash")
 def flashcards():
-
+    localID = auth.get_account_info(user['idToken'])
+    user_data = db.child(localID).get()
+    for entry in user_data.each():
+        sentence = entry.
+    
     return render_template('flashcards.html', flashcards=[('word', 'definition')])
 
 

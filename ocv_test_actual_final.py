@@ -8,7 +8,7 @@ from PIL import Image, ImageEnhance, ImageFilter
 from google.cloud import translate as tr
 import os
 
-credential_path = r"C:\Projects\Current\Group\Ngan-d75258a9f7a3.json"
+credential_path = r"C:\Users\miche\Desktop\UCI\Projects\Ngan-d75258a9f7a3.json"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 translate_client = tr.Client()
@@ -28,9 +28,9 @@ def parse_img(f, lang):
             im = im.filter(ImageFilter.MedianFilter())
             img = im.point(lambda x: 0 if x < 140 else 255)
             text = pytesseract.image_to_string(img, lang=lang)
-            return clean_text(text)
+            return text
         else:
-            return clean_text(text)
+            return text
     except Exception as e:
         return str(e)
 
