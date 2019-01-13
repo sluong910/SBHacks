@@ -3,9 +3,8 @@ import pyrebase
 # import ocv_test
 import ocv_test_actual_final
 import re
-import json
 import urllib
-
+from trans_lang import LANGUAGES
 app = Flask(__name__)
 
 config = {
@@ -29,6 +28,7 @@ user = ''
 @app.route("/", methods=['GET', 'POST'])
 def index():
     global user
+    user = ''
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -63,24 +63,36 @@ def dashboard():
     # user_info = current_email
     global user
 
-    localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
+    if user == '':
+        return render_template('login.html')
 
+    if request.method == 'POST':
+        s = request.form['select-language']
+        localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
 
-    filestr = request.files['file'].read()
+        filestr = request.files['file'].read()
 
-    outp = ocv_test_actual_final.main(filestr,"chi_sim","zh-tw",1)
-    print(outp)
-    # outp = ocv_test.parse_img(filestr)
-    text1 = re.sub(r'\s+', ' ', outp[0])
-    text2 = re.sub(r'\s+', ' ', outp[1])
+        outp = ocv_test_actual_final.main(filestr,LANGUAGES[s][0],LANGUAGES[s][1],0)
+        # print(outp)
+        # outp = ocv_test.parse_img(filestr)
+        text1 = re.sub(r'\s+', ' ', outp[0])
+        text2 = re.sub(r'\s+', ' ', outp[1])
+        d = outp[2]
 
-    print(text1, text2)
-    # card = {text1:text2}
-    # db.child("word").push(card)
+        d2 = dict()
 
-    db.child(localId).child(text1).set(text2)
+        for k in d.keys():
+            if not (re.sub(r'\s+', ' ', k) == ' ' or re.sub(r'\s+', ' ', d[k]) == ' '):
+                d2[re.sub(r'\s+', ' ', k)] = re.sub(r'\s+', ' ', d[k])
 
-
+        # print(text1, text2)
+        # card = {text1:text2}
+        # db.child("word").push(card)
+        if d2:
+            for e in d2.keys():
+                db.child(localId).child(text1).child(text2).child(e).set(d2[e])
+        else:
+            db.child(localId).child(text1).set(text2)
     return render_template('dashboard.html')
 
 @app.route("/AboutUs")
