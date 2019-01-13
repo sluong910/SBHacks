@@ -101,6 +101,9 @@ def settings():
 
 @app.route("/flash")
 def flashcards():
+    localId = auth.get_account_info(user['idToken'])
+    user = db.get(localId)
+    
     return render_template('flashcards.html', flashcards=[(word, definition)])
 
 if __name__ == '__main__':
