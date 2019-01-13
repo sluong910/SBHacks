@@ -85,8 +85,15 @@
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
         <a class="display-1" href="{{ url_for('login') }}" id="A1">
-          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
+          <font color="white">DARE 
+            <br><small id="A2"> Dictionary & Augmented Reality Explorer</small>
         </a>
+          <button type="button" class="btn btn-dark btn-xs">
+            <a href='/flash' style="color:grey">Flashcards</a>
+          </button>
+         <!-- <p>
+            <a href='/flash'>Flashcards</a>
+          </p> -->
       </nav>
     </div>
   </div>
@@ -122,6 +129,8 @@
                   <input type=file name=file>
                   <input type=submit class="btn btn-danger" value=Upload>
                 </p>
+
+              
               </form>
           </div>
         </div>
