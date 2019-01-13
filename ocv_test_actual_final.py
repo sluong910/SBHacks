@@ -8,7 +8,7 @@ from PIL import Image, ImageEnhance, ImageFilter
 from google.cloud import translate
 import os
 
-credential_path = r"C:\Projects\Current\Group\Ngan-d75258a9f7a3.json"
+credential_path = r"C:\Users\miche\Desktop\UCI\Projects\Ngan-d75258a9f7a3.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 translate_client = translate.Client()
 
