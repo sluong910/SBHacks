@@ -9,7 +9,11 @@ from google.cloud import translate
 import os
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 credential_path = r"C:\Users\miche\Desktop\UCI\Projects\Ngan-d75258a9f7a3.json"
+=======
+credential_path = r"F:\\VAULT 419\\Files\\projects\\Python\\test\\Ngan-d75258a9f7a3.json"
+>>>>>>> 1176e020460653c9476d7a4a3f5f7a58647c85b4
 =======
 credential_path = r"F:\\VAULT 419\\Files\\projects\\Python\\test\\Ngan-d75258a9f7a3.json"
 >>>>>>> 1176e020460653c9476d7a4a3f5f7a58647c85b4
