@@ -20,4 +20,4 @@ translation = translate_client.translate(
 
 print(u'Text: {}'.format(text))
 print(u'Translation: {}'.format(translation['translatedText']))
-print(translation)
+print(translation[0][1][-2])
