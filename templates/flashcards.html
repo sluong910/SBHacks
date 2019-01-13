@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About DARE</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<!-- Optional theme -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
+    <style>
+      a {color: #343a40;}
+      html {
+      box-sizing: border-box;
+      }
+      *, *:before, *:after {
+      box-sizing: inherit;
+      }
+      .navbar{
+        margin-bottom:0;
+        border-radius:0;
+        background-color: black;
+        border-color: white;
+      }
+      #A1{
+          font-family: 'Allerta Stencil', sans-serif;
+          font-size: 60px;
+        }
+      #A2{
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 15px;
+      }
+      #LaPass{
+        font-family: 'Amatic SC', cursive;
+        font-size:30px;
+        color: white;
+      }
+      #LaEm{
+        font-family: 'Amatic SC', cursive;
+        font-size:30px;
+        color: white;
+      }
+      #LaRe{
+        font-family: 'Amatic SC', cursive;
+        font-size:30px;
+        color: white;
+      }
+      #h1{
+        font-family: 'Amatic SC', cursive;
+        font-size:120px;
+      }
+      h2{
+        color:black;
+      }
+      .jumbotron {
+         background: #ABCDEF url('static/images/Dashboard.jpg') no-repeat right top;
+         height: 400px;
+       }
+       .form-group {
+        max-width: 950px;
+        margin: 0 auto;
+        text-align: center;
+        display : block;
+        }
+        .container {
+          position: relative;
+        }
+        .form-group {
+          position: absolute;
+        width: 200px;
+        height: 50px;
+        left: 50%;
+        top: 0;
+        margin: 0 0 0 -100px;
+        }
+        .checkbox {
+        position: absolute;
+        width: 200px;
+        height: 50px;
+        left: 50%;
+        bottom: 0;
+        margin: 0 0 0 -100px;
+        }
+        .remember_me {
+          float = left;
+        }
+        .desc {
+          color: black;
+        }
+        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  display: inline-block;
+  float:left;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  float:left;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+.row {
+          float:left;
+        }
+        .clearfix{
+        clear:both
+        }
+    </style>
+</head>
+<body>
+  <!--navbar-->
+  <div class="navbar-wrapper navbar-wrapper-dark">
+    <div class="container-fluid">
+      <nav class="navbar navbar-static-top">
+        <a class="display-1" href="{{ url_for('login') }}" id="A1">
+          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- JUMBOTRON-->
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1 class="display-1" id="h1">Your Flashcards</h1>
+        <div style="height:40px"></div>
+          <p>
+            Welcome to &nbsp;<strong id="Name">DARE (Dictionary & Augmented Reality Explorer)</strong>&nbsp;! We are here to help you connecting with unfamiliar places by directly translating all languages for you with just a few clicks.
+            Moreover, we designed our website as simple as possible to help all ages to learn new languages.
+          </p>
+      </div>
+    </div>
+  </div>
+
+    <!-- FLASHCARDS-->
+  {% for card in flashcards %}
+        <div class="flip-card" style="margin: 10px 20px">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem; height:10rem;">
+        <div class="card-header">Language</div>
+        <div class="card-body">
+          <h3 class="card-title">{{card}}</h3>
+        </div>
+      </div>
+      </div>
+      <div class="flip-card-back">
+      <div class="card text-white bg-dark mb-3" style="width: 18rem;height:10rem;">
+        <div class="card-header">Language</div>
+        <div class="card-body">
+          <h5 class="card-title">{{card}}</h5>
+          <p class="card-text">English definition.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  {% endfor %}
+
+
+  <div class="container marketing">
+  <div class="row">
+    <div class="col-md-4 col-lg-4">
+      <a <a href="{{ url_for('dashboard') }}"  target="_blank">
+        <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
+      </a>
+      <h2>Dashboard</h2>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+    </div>
+
+
+    <div class="col-md-4 col-lg-4">
+      <a href="#"  target="_blank">
+        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
+      </a>
+      <h2 id="h2">Who Are We?</h2>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+      <a <a href="{{ url_for('login') }}" target="_blank">
+        <img alt="Login" src="static/images/Login.jpg" width="100" height="100">
+      </a>
+      <h2>Login</h2>
+      <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+    </div>
+  </div>
+  </div>
+
+<div style= "height:40px"></div>
+<footer>
+  <p class= "container"><small>Copyright &copy; 2019 UCSBhacks</small></p>
+
+</footer>
+</body>
+</html>

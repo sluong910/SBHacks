@@ -5,25 +5,31 @@ import re
 from PIL import Image
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
-from google.cloud import translate
+from google.cloud import translate as tr
 import os
 
 credential_path = r"F:\\VAULT 419\\Files\\projects\\Python\\test\\Ngan-d75258a9f7a3.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-translate_client = translate.Client()
+translate_client = tr.Client()
 
 # config
 pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
 
 def parse_img(img, lang):
     try:
-        # f = open(img, 'rb').read()
-        nparr = np.fromstring(img, np.uint8)
+        f = open(img, 'rb').read()
+        nparr = np.frombuffer(f, np.uint8)
         img_np = cv2.imdecode(nparr, 0)
         img = Image.fromarray(img_np)
         text = pytesseract.image_to_string(img, lang=lang)
-        # return clean_text(text)
-        return text
+        if text == '':
+            im = img.convert('L')                             # grayscale
+            im = im.filter(ImageFilter.MedianFilter())       # a little blur
+            img = im.point(lambda x: 0 if x < 140 else 255)   # threshold (binarize)
+            text = pytesseract.image_to_string(img, lang=lang)
+            return clean_text(text)
+        else:
+            return clean_text(text)
     except Exception as e:
         return str(e)
 
@@ -79,7 +85,7 @@ def alt_generate_vocab(text, n):
             for thing in barrel:
                 dic[thing] = translate_client.translate(thing, target_language=target)['translatedText']
     else:
-        text = text.split(" ")
+        text = list(text)
         if n == 1 or n == 0:
             for char in text:
                 dic[char] = translate_client.translate(char, target_language=target)['translatedText']

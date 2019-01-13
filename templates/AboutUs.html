@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Us</title>
+    <title>About DARE</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 	<!-- Optional theme -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
 
 
@@ -22,12 +23,19 @@
         border-color: white;
       }
       #Name{
-        font-family: 'ZCOOL KuaiLe', cursive;
+        font-family: 'Allerta Stencil', sans-serif;
         font-size: 20px;
       }
       #A1{
-        font-family: 'ZCOOL KuaiLe', cursive;
-        font-size: 40px;
+          font-family: 'Allerta Stencil', sans-serif;
+          font-size: 60px;
+        }
+        #h2{
+          color:black;
+        }
+      #A2{
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 15px;
       }
       .jumbotron {
          background: #ABCDEF url('images/Dashboard.jpg') no-repeat right top;
@@ -40,7 +48,9 @@
   <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
-        <a class="display-1" href="{{ url_for('login') }}" id="A1"><font color="white">QuickLang</font></a>
+        <a class="display-1" href="{{ url_for('login') }}" id="A1">
+          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
+        </a>
       </nav>
     </div>
   </div>
@@ -49,7 +59,7 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <div class="container">
-        <h1 class="display-1" id="h1">About Us</h1>
+        <h1 class="display-1" id="h1">About DARE</h1>
         <div style="height:40px"></div>
           <p>
             Welcome to &nbsp;<strong id="Name">QuickLang</strong>&nbsp;! We are here to help you connecting with unfamiliar places by directly translating all languages for you with just a few clicks.
@@ -62,7 +72,7 @@
   <div class="container marketing">
   <div class="row">
     <div class="col-md-4 col-lg-4">
-      <a href="dashboard.html"  target="_blank">
+      <a <a href="{{ url_for('dashboard') }}"  target="_blank">
         <img alt="Dashboard" src="images/Dashboard_Img.jpg" width="100" height="100">
       </a>
       <h2>Dashboard</h2>
@@ -74,12 +84,12 @@
       <a href="#"  target="_blank">
         <img alt="Contact Info" src="images/contactinfo.jpg" width="100" height="100">
       </a>
-      <h2>Contact Information</h2>
+      <h2 id="h2">Who Are We?</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
     </div>
 
     <div class="col-md-4 col-lg-4">
-      <a href="login.html" target="_blank">
+      <a <a href="{{ url_for('login') }}" target="_blank">
         <img alt="Login" src="images/Login.jpg" width="100" height="100">
       </a>
       <h2>Login</h2>

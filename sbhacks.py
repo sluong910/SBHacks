@@ -87,5 +87,9 @@ def dashboard():
 def settings():
     return render_template('AboutUs.html')
 
+@app.route("/flash")
+def flashcards():
+    return render_template('flashcards.html', flashcards=["你好吗", "world", "tiger", "你好吗", "world", "tiger", "你好吗", "world", "tiger"])
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host="0.0.0.0", debug=True)
