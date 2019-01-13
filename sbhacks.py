@@ -20,9 +20,6 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 auth = firebase.auth()
 
-# user = dict()
-current_email = ""
-
 user = ''
 
 @app.route("/", methods=['GET', 'POST'])
@@ -52,7 +49,6 @@ def create_account():
         password = request.form['password']
         try:
             auth.create_user_with_email_and_password(email, password)
-            db.set(email)
             msg = 'Account Successfully Created'
         except:
             return render_template('createAccount.html', message="Error Creating Account")
