@@ -110,19 +110,19 @@
             &nbsp;
             <input type="Password" class="form-control" placeholder="password" name="password">
           </div>
+          <div style="height:120px"></div>
+          <div class="checkbox">
+              <br>
+              <button type="submit" class="btn btn-warning"><a>LOG IN</a></button>
+              <button type="login" class="btn btn-success">
+                <a href="{{ url_for('create_account') }}">SIGN ME UP!</a>
+              </button>
+              <label id="LaRe" class="remember_me">
+                &nbsp;
+                <input type="checkbox" >Remember Me
+              </label>
+            </div>
         </form>
-        <div style="height:120px"></div>
-        <div class="checkbox">
-            <br>
-            <input type="submit" class="btn btn-warning" href="{{ url_for('dashboard') }}">
-            <button type="login" class="btn btn-success">
-              <a href="{{ url_for('create_account') }}">SIGN ME UP!</a>
-            </button>
-            <label id="LaRe" class="remember_me">
-              &nbsp;
-              <input type="checkbox" >Remember Me
-            </label>
-          </div>
       </div>
     </div>
     </div>
