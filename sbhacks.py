@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import pyrebase
-# import ocv_test
 import ocv_test_actual_final
 import re
 import urllib
