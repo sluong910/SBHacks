@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <!-- FOR FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css" />
 
 
@@ -23,8 +24,12 @@
         border-color: white;
       }
       #A1{
-        font-family: 'ZCOOL KuaiLe', cursive;
-        font-size: 40px;
+          font-family: 'Allerta Stencil', sans-serif;
+          font-size: 60px;
+        }
+      #A2{
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 15px;
       }
       #h1{
         font-family: 'Amatic SC', cursive;
@@ -41,7 +46,9 @@
     <div class="navbar-wrapper navbar-wrapper-dark">
     <div class="container-fluid">
       <nav class="navbar navbar-static-top">
-        <a class="display-1" href="{{ url_for('login') }}" id="A1"><font color="white">QuickLang</font></a>
+        <a class="display-1" href="{{ url_for('login') }}" id="A1">
+          <font color="white">DARE <small id="A2"> Dictionary & Augmented Reality Explorer</small>
+        </a>
       </nav>
     </div>
     </div>
