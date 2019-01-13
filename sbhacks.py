@@ -20,6 +20,9 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 auth = firebase.auth()
 
+# user = dict()
+current_email = ""
+
 user = ''
 
 @app.route("/", methods=['GET', 'POST'])
@@ -49,6 +52,7 @@ def create_account():
         password = request.form['password']
         try:
             auth.create_user_with_email_and_password(email, password)
+            db.set(email)
             msg = 'Account Successfully Created'
         except:
             return render_template('createAccount.html', message="Error Creating Account")
@@ -100,7 +104,6 @@ def settings():
 
 @app.route("/flash")
 def flashcards():
-<<<<<<< HEAD
     lt = []
     try:
         localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
@@ -117,15 +120,6 @@ def flashcards():
                 lt.append((k, s[e][k]))
 
     return render_template('flashcards.html', flashcards=lt)
-=======
-    localID = auth.get_account_info(user['idToken'])
-    user_data = db.child(localID).get()
-    for entry in user_data.each():
-        sentence = entry.
-    
-    return render_template('flashcards.html', flashcards=[('word', 'definition')])
->>>>>>> 5a82c6f98c09f36aa2a07cf99d0bd09e4faadfaa
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
