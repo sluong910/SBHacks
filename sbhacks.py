@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 import pyrebase
-import ocv_test
+# import ocv_test
+import ocv_test_actual_final
 import re
 import json
+import urllib
 
 app = Flask(__name__)
 
@@ -19,16 +21,19 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 auth = firebase.auth()
 
-user = dict()
+# user = dict()
 current_email = ""
+
+user = ''
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
+    global user
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         try:
-            auth.sign_in_with_email_and_password(email, password)
+            user = auth.sign_in_with_email_and_password(email, password)
             return render_template('dashboard.html')
         except:
             return render_template('login.html')
@@ -53,20 +58,27 @@ def create_account():
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
     # user_info = current_email
-    #auth.get_account_info(user['idToken'])
+    global user
+
+    localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
+
+
     filestr = request.files['file'].read()
 
-    outp = ocv_test.parse_img(filestr)
+    outp = ocv_test_actual_final.main(filestr,"chi_sim","zh-tw",1)
+    print(outp)
+    # outp = ocv_test.parse_img(filestr)
     text1 = re.sub(r'\s+', ' ', outp[0])
     text2 = re.sub(r'\s+', ' ', outp[1])
-    card = {text1:text2}
-    db.child("word").push(card)
 
-    idtoken = request.session['uid']
-    user_info = authe.get_account_info(idToken)['users'][0]['localId']
+    print(text1, text2)
+    # card = {text1:text2}
+    # db.child("word").push(card)
+
+    db.child(localId).child(text1).set(text2)
 
 
-    return render_template('dashboard.html', info=user_info)
+    return render_template('dashboard.html')
 
 @app.route("/AboutUs")
 def settings():

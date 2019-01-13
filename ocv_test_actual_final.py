@@ -5,24 +5,25 @@ import re
 from PIL import Image
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
-from google.cloud import translate as tr
+from google.cloud import translate
 import os
 
-credential_path = "F:\\VAULT 419\\Files\\projects\\Python\\SBHacks\\My First Project-4d14c9eb3507.json"
+credential_path = r"C:\Projects\Current\Group\Ngan-d75258a9f7a3.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-translate_client = tr.Client()
+translate_client = translate.Client()
 
 # config
 pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
 
 def parse_img(img, lang):
     try:
-        f = open(img, 'rb').read()
-        nparr = np.frombuffer(f, np.uint8)
-        img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        # f = open(img, 'rb').read()
+        nparr = np.fromstring(img, np.uint8)
+        img_np = cv2.imdecode(nparr, 0)
         img = Image.fromarray(img_np)
         text = pytesseract.image_to_string(img, lang=lang)
-        return clean_text(text)
+        # return clean_text(text)
+        return text
     except Exception as e:
         return str(e)
 
