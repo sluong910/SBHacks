@@ -50,9 +50,12 @@ def create_account():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        auth.create_user_with_email_and_password(email, password)
-        db.set(email)
-        msg = 'Account Successfully Created'
+        try:
+            auth.create_user_with_email_and_password(email, password)
+            db.set(email)
+            msg = 'Account Successfully Created'
+        except:
+            return render_template('createAccount.html', message="Error Creating Account")
     return render_template('createAccount.html', message=msg)
 
 @app.route("/dashboard", methods=['GET', 'POST'])
