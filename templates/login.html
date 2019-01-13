@@ -144,29 +144,30 @@
 <!-- Extra Stuff-->
   <div class="container marketing">
   <div class="row">
-  <div class="col-md-4 col-lg-4">
-    <a href="{{ url_for('settings') }}"  target="_blank">
-      <img alt="About Us" src="static/images/AboutUs.jpg" width="90" height="90">
-    </a>
-  <h2 id="h2">About Dare</h2>
-  <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-  </div>
+    <div class="col-md-4 col-lg-4">
+      <a <a href="{{ url_for('dashboard') }}">
+        <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
+      </a>
+      <h2>Dashboard</h2>
+      <p class="desc">Scan images, access flashcards, and account services</p>
+    </div>
 
-  <div class="col-md-4 col-lg-4">
-    <a href="#"  target="_blank">
-      <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
-    </a>
-  <h2>Who Are We?</h2>
-  <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-  </div>
 
-  <div class="col-md-4 col-lg-4">
-    <a href="{{ url_for('dashboard') }}"  target="_blank">
-      <img alt="Dashboard" src="static/images/Dashboard_Img.jpg" width="100" height="100">
-    </a>
-  <h2>Dashboard</h2>
-  <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-  </div>
+    <div class="col-md-4 col-lg-4">
+      <a href="{{ url_for('settings') }}" target="_blank">
+        <img alt="Contact Info" src="static/images/contactinfo.jpg" width="100" height="100">
+      </a>
+      <h2 id="h2">Who Are We?</h2>
+      <p class="desc">We are a group of passionate programmers who DARE'd to break the boundaries of language</p>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+      <a <a href="{{ url_for('login') }}" target="_blank">
+        <img alt="Login" src="static/images/Login.jpg" width="100" height="100">
+      </a>
+      <h2>Login</h2>
+      <p class="desc">Log in to your account!</p>
+    </div>
   </div>
   </div>
 
@@ -174,7 +175,7 @@
 </body>
 <div style= "height:40px"></div>
 <footer>
-  <p class= "container"><small>Copyright &copy; 2019 UCSBhacks</small></p>
+  <p class= "container" style="color:black"><small>Copyright &copy; 2019 UCSBhacks</small></p>
 
 </footer>
 </html>
