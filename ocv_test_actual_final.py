@@ -28,9 +28,9 @@ def parse_img(f, lang):
             im = im.filter(ImageFilter.MedianFilter())
             img = im.point(lambda x: 0 if x < 140 else 255)
             text = pytesseract.image_to_string(img, lang=lang)
-            return clean_text(text)
+            return text
         else:
-            return clean_text(text)
+            return text
     except Exception as e:
         return str(e)
 
