@@ -65,35 +65,38 @@ def dashboard():
 
     if user == '':
         return render_template('login.html')
+    try:
+        if request.method == 'POST':
+            s = request.form['select-language']
+            localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
 
-    if request.method == 'POST':
-        s = request.form['select-language']
-        localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
+            filestr = request.files['file'].read()
 
-        filestr = request.files['file'].read()
+            outp = ocv_test_actual_final.main(filestr,LANGUAGES[s][0],LANGUAGES[s][1],0)
+            # print(outp)
+            # outp = ocv_test.parse_img(filestr)
+            text1 = re.sub(r'\s+', ' ', outp[0])
+            text2 = re.sub(r'\s+', ' ', outp[1])
+            d = outp[2]
 
-        outp = ocv_test_actual_final.main(filestr,LANGUAGES[s][0],LANGUAGES[s][1],0)
-        # print(outp)
-        # outp = ocv_test.parse_img(filestr)
-        text1 = re.sub(r'\s+', ' ', outp[0])
-        text2 = re.sub(r'\s+', ' ', outp[1])
-        d = outp[2]
+            d2 = dict()
 
-        d2 = dict()
+            for k in d.keys():
+                if not (re.sub(r'\s+', ' ', k) == ' ' or re.sub(r'\s+', ' ', d[k]) == ' '):
+                    d2[re.sub(r'\s+', ' ', k)] = re.sub(r'\s+', ' ', d[k])
 
-        for k in d.keys():
-            if not (re.sub(r'\s+', ' ', k) == ' ' or re.sub(r'\s+', ' ', d[k]) == ' '):
-                d2[re.sub(r'\s+', ' ', k)] = re.sub(r'\s+', ' ', d[k])
+            # print(text1, text2)
+            # card = {text1:text2}
+            # db.child("word").push(card)
+            if d2:
+                for e in d2.keys():
+                    db.child(localId).child(text1).child(text2).child(e).set(d2[e].lower())
+            else:
+                db.child(localId).child(text1).set(text2)
+        return render_template('dashboard.html')
+    except:
+        return render_template('login.html')
 
-        # print(text1, text2)
-        # card = {text1:text2}
-        # db.child("word").push(card)
-        if d2:
-            for e in d2.keys():
-                db.child(localId).child(text1).child(text2).child(e).set(d2[e])
-        else:
-            db.child(localId).child(text1).set(text2)
-    return render_template('dashboard.html')
 
 @app.route("/AboutUs")
 def settings():
@@ -101,7 +104,22 @@ def settings():
 
 @app.route("/flash")
 def flashcards():
-    return render_template('flashcards.html', flashcards=[('word', 'definition')])
+    lt = []
+    try:
+        localId = auth.get_account_info(user['idToken'])['users'][0]['localId']
+    except:
+        return render_template('login.html')
+
+    sentences = db.child(localId).get().val()
+
+    ori_sen = list(sentences.items())
+    for sen in ori_sen:
+        s = sen[1]
+        for e in s.keys():
+            for k in s[e].keys():
+                lt.append((k, s[e][k]))
+
+    return render_template('flashcards.html', flashcards=lt)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
