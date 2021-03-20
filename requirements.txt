@@ -15,7 +15,7 @@ gunicorn==19.9.0
 html5lib==1.0.1
 httplib2==0.11.3
 ijson==2.3
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 matplotlib==2.2.3
 mglearn==0.1.6
